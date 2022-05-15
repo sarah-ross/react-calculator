@@ -32,13 +32,7 @@ function reducer(state, { type, payload }) {
 				state.currentOperand.includes(".")
 			)
 				return state;
-
-			return {
-				...state,
-				currentOperand: `${currentOperand || ""}${
-					payload.digit
-				}`,
-			};
+			break;
 		case ACTIONS.CHOOSE_OPERATION:
 			if (
 				state.currentOperand == null &&
@@ -82,7 +76,6 @@ function reducer(state, { type, payload }) {
 			if (state.currentOperand.length === 1) {
 				return { ...state, currentOperand: null };
 			}
-
 			return {
 				...state,
 				currentOperand: state.currentOperand.slice(0, -1),

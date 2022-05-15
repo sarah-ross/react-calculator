@@ -13,7 +13,7 @@ export default function OperationButton({
 					payload: { operation },
 				})
 			}>
-			{digit}
+			{operation}
 		</button>
 	);
 }
