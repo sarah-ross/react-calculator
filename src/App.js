@@ -47,8 +47,9 @@ function evaluate({
 		case "÷":
 			computation = previous / current;
 			break;
+		default:
+			computation = operation;
 	}
-
 	return computation.toString();
 }
 
@@ -115,7 +116,9 @@ function reducer(state, { type, payload }) {
 			if (state.currentOperand.length === 1) {
 				return { ...state, currentOperand: null };
 			}
+			break;
 
+		default:
 			return {
 				...state,
 				currentOperand: state.currentOperand.slice(0, -1),
